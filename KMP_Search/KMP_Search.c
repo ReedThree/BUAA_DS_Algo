@@ -4,9 +4,9 @@
 
 #include "KMP_Search.h"
 
-char *_KMPfindNext(char *s, char *substr, size_t *next);
+char *_KMPfindNext(char *s, const char *substr, const size_t *next);
 
-void generateNext(char *substr, size_t *next) {
+void generateNext(const char *substr, size_t *next) {
     size_t nextToCompare = 0;
     size_t currentMatchedLen = 0;
     next[0] = 0;
@@ -34,7 +34,7 @@ void generateNext(char *substr, size_t *next) {
     }
 }
 
-char *KMPfindNext(char *s, char *substr) {
+char *KMPfindNext(char *s, const char *substr) {
     size_t substrLen = strlen(substr);
     size_t *next = (size_t *)malloc(substrLen * sizeof(size_t));
     generateNext(substr, next);
@@ -43,7 +43,7 @@ char *KMPfindNext(char *s, char *substr) {
     return ret;
 }
 
-size_t KMPfindAll(char *s, char *substr, size_t *indexOfOccurence) {
+size_t KMPfindAll(const char *s, const char *substr, size_t *indexOfOccurence) {
     size_t substrLen = strlen(substr);
     size_t *next = (size_t *)malloc(substrLen * sizeof(size_t));
     size_t count = 0;
@@ -75,7 +75,7 @@ size_t KMPfindAll(char *s, char *substr, size_t *indexOfOccurence) {
     return count;
 }
 
-char *_KMPfindNext(char *s, char *substr, size_t *next) {
+char *_KMPfindNext(char *s, const char *substr, const size_t *next) {
     size_t i = 0;
     size_t j = 0;
     size_t substrLen = strlen(substr);
