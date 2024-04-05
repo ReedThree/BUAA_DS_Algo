@@ -1,0 +1,3 @@
+add_library(Eval_Stack Stack.c)
+target_link_libraries(Eval_Stack PRIVATE algo_compiler_flags)
+target_include_directories(Eval_Stack INTERFACE ${CMAKE_CURRENT_SOURCE_DIR})
