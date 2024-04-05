@@ -58,7 +58,8 @@ size_t KMPfindAll(char *s, char *substr, size_t *indexOfOccurence) {
             if (j == substrLen) {
                 indexOfOccurence[count] = i - substrLen;
                 count++;
-                i = i - substrLen + 1;
+                size_t toMove = substrLen - next[substrLen - 1];
+                i = i - substrLen + toMove;
                 j = 0;
             }
         } else {
